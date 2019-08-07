@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="bg-local" style="background-image: url(https://github.com/CristyGomez/todo-app-vue/blob/master/src/assets/patitos2.jpg)">
+    <div id="app" class="bg-yellow-200 h-screen">
         <TodoList/>
     </div>
 </template>

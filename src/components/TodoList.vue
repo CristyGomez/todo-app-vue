@@ -25,9 +25,6 @@
             <button class="flex-1 mx-1 bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
             Done
             </button>
-            <button class="flex-1 mx-1 bg-orange-200 hover:bg-orange-500 text-orange-700 font-semibold hover:text-white py-2 px-4 border border-orange-500 hover:border-transparent rounded">
-            Update
-            </button>
             <button class="flex-1 mx-1 bg-blue-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
             Edit
             </button>
