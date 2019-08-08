@@ -118,7 +118,7 @@ export default {
     margin-left: 12px;
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc; //override defaults
+    border: 1px solid #ccc;
 
     &:focus {
       outline: none;
