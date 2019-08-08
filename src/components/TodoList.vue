@@ -128,5 +128,9 @@ export default {
     text-decoration: line-through;
     color: grey;
   }
+    .todo-item-left {
+    display: flex;
+    align-items: center;
+  }
 
 </style>
