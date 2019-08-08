@@ -2,7 +2,7 @@
     <div class="container mx-auto px-4 py-20 flex flex-col flex-wrap">
         <h1 class="font-bold font-hairline text-6xl text-center text-orange-400">PATITOH</h1>
 
-        <todo-card class="mx-auto mt-4 h-64 w-full max-w-lg">
+        <todo-card class="mx-auto mt-4 h-auto w-full max-w-lg">
         <div>
             <input placeholder="New Task" @keyup.enter="addTodo" v-model="newTodo" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
             <hr>
@@ -19,7 +19,7 @@
         </todo-card>
 
         <todo-card class="flex items-center px-8 mx-auto mt-10 w-full max-w-lg">
-            <button class="flex-1 mx-1 bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
+            <button @click="addTodo" v-model="newTodo" class="flex-1 mx-1 bg-green-200 hover:bg-green-500 text-green-700 font-semibold hover:text-white py-2 px-4 border border-green-500 hover:border-transparent rounded">
             Done
             </button>
             <button class="flex-1 mx-1 bg-blue-200 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
