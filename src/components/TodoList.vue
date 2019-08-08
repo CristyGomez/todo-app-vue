@@ -7,8 +7,9 @@
             <input placeholder="New Task" @keyup.enter="addTodo" v-model="newTodo" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
             <hr>
             <div v-for="(todo, index) in todos" :key="todo.id" class="todo-item">
-                <div class="text-xl">
-                    {{todo.title}}
+                <div class="todo-item-left text-xl">
+                   <div v-if="!todo.editing" @dblclick="editTodo(todo)" class="todo-item-label">{{todo.title}}</div>
+                   <input v-else class="todo-item-edit" type="text" v-model="todo.title" @blur="doneEdit(todo)" @keyup.enter="doneEdit(todo)" v-focus>
                 </div>
                 <div class="remove-item cursor-pointer" @click="removeTodo(index)">
                     &times;
@@ -45,11 +46,13 @@ export default {
                     'id': 1,
                     'title': 'Example task',
                     'done': false,
+                    'editing': false,
                 },
                 {
                     'id': 2,
                     'title': 'Example task 2',
                     'done': false,
+                    'editing': false,
                 },
             ]
         };
@@ -74,6 +77,12 @@ export default {
             this.newTodo=''
             this.idForTodo++
         },
+        editTodo(todo){
+            todo.editing = true
+        },
+        doneEdit(todo) {
+            todo.editing = false
+        },
         removeTodo(index){
             this.todos.splice(index, 1)
         }
@@ -87,4 +96,24 @@ export default {
     align-items: center;
     justify-content: space-between;
   }
+
+
+  .todo-item-label {
+    padding: 10px;
+    border: 1px solid white;
+    margin-left: 12px;
+  }
+
+  .todo-item-edit {
+    color: #2c3e50;
+    margin-left: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; //override defaults
+
+    &:focus {
+      outline: none;
+    }
+  }
+
 </style>
