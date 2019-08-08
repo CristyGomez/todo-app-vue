@@ -3,22 +3,19 @@
         <h1 class="font-bold font-hairline text-6xl text-center text-orange-400">PATITOH</h1>
 
         <todo-card class="mx-auto mt-4 h-64 w-full max-w-lg">
-        <p>
-            <label class="font-bold">Title: </label>
-            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500"
-            >
+        <div>
+            <input placeholder="New Task" @keyup.enter="addTodo" v-model="newTodo" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
             <hr>
-            <label class="font-bold">Name: </label>
-            <input class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500"
-            >
-            <hr>
-            <label class="font-bold pr-8 ">Have you finished the homework?</label>
-    
-            <input type="checkbox" id="Yes" value="Yes" v-model="picked">
-            <label class="font-bold pr-4 " for="Yes">Yes</label>
-            <input type="checkbox" id="No" value="No" v-model="picked">
-            <label class="font-bold pr-4 " for="No">No</label>
-        </p>
+            <div v-for="(todo, index) in todos" :key="todo.id" class="todo-item">
+                <div class="text-xl">
+                    {{todo.title}}
+                </div>
+                <div class="remove-item cursor-pointer" @click="removeTodo(index)">
+                    &times;
+
+                </div>
+            </div>
+        </div>
         </todo-card>
 
         <todo-card class="flex items-center px-8 mx-auto mt-10 w-full max-w-lg">
@@ -37,18 +34,23 @@
 
 <script>
 export default {
-    props: {
-
-    },
+    name: 'todo-list',
 
     data () {
         return {
-            tasks: [
+            newTodo: '',
+            idForTodo: 3,
+            todos: [
                 {
-                    id: 1,
-                    title: 'Example task',
-                    done: false
-                }
+                    'id': 1,
+                    'title': 'Example task',
+                    'done': false,
+                },
+                {
+                    'id': 2,
+                    'title': 'Example task 2',
+                    'done': false,
+                },
             ]
         };
     },
@@ -58,7 +60,31 @@ export default {
     },
 
     methods: {
+        addTodo(){
+            if(this.newTodo.trim().length == 0){
+                return
+            }
 
+            this.todos.push({
+                id: this.idForTodo,
+                title: this.newTodo,
+                done: false,    
+            })
+        
+            this.newTodo=''
+            this.idForTodo++
+        },
+        removeTodo(index){
+            this.todos.splice(index, 1)
+        }
     }
 }
 </script>
+<style>
+  .todo-item {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
