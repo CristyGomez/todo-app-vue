@@ -4,7 +4,7 @@
 
         <todo-card class="mx-auto mt-4 h-auto w-full max-w-lg">
         <div>
-            <input placeholder="New Task" @keyup.enter="addTodo" v-model="newTodo" class="bg-gray-500 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-900 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
+            <input placeholder="New Task" @keyup.enter="addTodo" v-model="newTodo" class="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-900 leading-tight focus:outline-none focus:bg-white focus:border-yellow-500">
             <hr>
             <div v-for="(todo, index) in todos" :key="todo.id" class="todo-item">
                 <div class="todo-item-left text-xl">
