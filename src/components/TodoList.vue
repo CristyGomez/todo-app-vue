@@ -29,8 +29,8 @@
             <button @click="addTodo" v-model="newTodo" class="flex-1 mx-1 bg-green-300 hover:bg-green-500 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-900 hover:border-transparent rounded">
             Done
             </button>
-            <button class="flex-1 mx-1 bg-red-200 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
-            Delete
+            <button class="flex-1 mx-1 bg-red-200 hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded" @click="clearCompleted">
+            Clear Complete
             </button>
             </div>
         </todo-card>
@@ -107,6 +107,9 @@ export default {
         checkAllTodos() {
             this.todos.forEach((todo) => todo.completed = event.target.checked)
         },
+        clearCompleted() {
+        this.todos = this.todos.filter(todo => !todo.completed)
+        }
     }
 }
 </script>
