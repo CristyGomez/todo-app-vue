@@ -21,9 +21,9 @@
 
         <todo-card class=" px-8 mx-auto h- mt-10 w-full max-w-lg ">
               <div class="extra-container">
-                <div><label><input type="checkbox" :checked="!anyRemaining"> Check All</label></div>
+                <div><label><input type="checkbox" :checked="!anyRemaining" @change="checkAllTodos"> Check All</label></div>
                 <div>{{ remaining }} items left</div>
-            </div>     
+                </div>
             <br>       
             <div class="flex items-center">
             <button @click="addTodo" v-model="newTodo" class="flex-1 mx-1 bg-green-300 hover:bg-green-500 text-green-900 font-semibold hover:text-white py-2 px-4 border border-green-900 hover:border-transparent rounded">
@@ -114,7 +114,10 @@ export default {
         },
         removeTodo(index){
             this.todos.splice(index, 1)
-        }
+        },
+        checkAllTodos() {
+        this.todos.forEach((todos) => todo.completed = event.target.checked)
+        },
     }
 }
 </script>
