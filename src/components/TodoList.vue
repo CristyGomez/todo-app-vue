@@ -80,7 +80,7 @@ export default {
             this.todos.push({
                 id: this.idForTodo,
                 title: this.newTodo,
-                done: false,
+                completed: false,
                 editing: false,    
             })
         
