@@ -116,7 +116,7 @@ export default {
             this.todos.splice(index, 1)
         },
         checkAllTodos() {
-        this.todos.forEach((todos) => todo.completed = event.target.checked)
+            this.todos.forEach((todo) => todo.completed = event.target.checked)
         },
     }
 }
