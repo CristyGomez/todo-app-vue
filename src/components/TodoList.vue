@@ -47,18 +47,7 @@ export default {
             idForTodo: 3,
             beforeEditCache: '',
             todos: [
-                {
-                    'id': 1,
-                    'title': 'Example task',
-                    'done': false,
-                    'editing': false,
-                },
-                {
-                    'id': 2,
-                    'title': 'Example task 2',
-                    'done': false,
-                    'editing': false,
-                },
+
             ]
         };
     },
