@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="bg-yellow-200 h-screen">
+    <div id="app" class="bg-fixed bg-no-repeat bg-cover min-h-screen" style="background-image: url(http://www.wallpaperstalk.com/wp-content/uploads/2019/05/jvOXWUEag.jpg)">
         <TodoList/>
     </div>
 </template>
